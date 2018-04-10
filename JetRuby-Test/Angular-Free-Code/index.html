@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" ng-app="shuffleGame">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script type="text/javascript" src="js/angular.min.js"></script>
+    <script type="text/javascript" src="js/application.js"></script>
+  </head>
+  <body ng-controller="shuffleController" ng-init="init()">
+  	<main class="container">
+  		<div class="row">
+  			<div class="boxes">
+  				<div class="box {{card.status}}" ng-repeat="card in cards track by $index" ng-click="cardClickEvent($index)">
+  					<div class="inner">
+  						<div class="cover"></div>
+  						<div class="behind">
+  							<div class="color" ng-style="{'background-color': card.color }"></div>
+  						</div>
+  					</div>
+  				</div>
+  			</div>
+  		</div>
+  	</main>
+    <footer>
+      <div class="modal" ng-show="showModal">
+        <div class="modal-body">
+          <p>Congratulations</p>
+          <p>You Win</p>
+          <button type="button" ng-click="init()">Play Again</button>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
